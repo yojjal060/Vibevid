@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
     {
         username: {
             type: String,
-            required: true,
+            required: [true,"Username is required"],
             unique: true,
             lowercase: true,
             trim: true,
@@ -94,3 +94,4 @@ userSchema.methods.generateRefreshToken = function () {
 };
 
 export const User = mongoose.model("User", userSchema);
+
